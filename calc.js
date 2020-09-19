@@ -7,16 +7,10 @@
  */
 
 // Set up some global constants for the program
-/*
+
 const express = require('express');
 const app = express();
-const port = 80;*/
 
-let port = process.env.PORT;
-if (port == null || port =="") {
-    port = 8000;
-}
-app.listen(port);
 
 /**
  * The index function redirects the user to request "index.html"
@@ -56,6 +50,9 @@ app.get('/', index);
 app.get('/calculate/op/:op/num1/:num1/num2/:num2', calculate);
 
 // Start Express listening at the given port
-app.listen(port, function() {
-    console.log("App running at port=" + port);
-});
+let port = process.env.PORT;
+if (port == null || port =="") {
+    port = 8000;
+}
+app.listen(port);
+
